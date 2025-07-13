@@ -50,8 +50,6 @@ Frontend deployed on Vercel
 
 Backend deployed on Render
 
-🙋‍♂️ Author
-Developed by Navraj Awasthi
-🔗 GitHub<Link>https://github.com/Navraj12<Link/>
+##🙋‍♂️ Author
 
-
+🌐 [Developed by Navraj Awasthi](https://github.com/Navraj12)
