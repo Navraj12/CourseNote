@@ -28,3 +28,11 @@ CourseNote is a full-stack web application built with the MERN stack (MongoDB, E
 ## 📁 Project Structure
 <img width="325" height="743" alt="{A20E69E9-9B9E-4B96-A1E6-254B04C4B5B2}" src="https://github.com/user-attachments/assets/dd67fbc8-be78-4888-8508-a5e99b8d17c8" />
 
+## 🚀 Getting Started Locally
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/Navraj12/Project1.git
+cd Project1
+
+
