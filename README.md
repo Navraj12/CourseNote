@@ -52,6 +52,6 @@ Backend deployed on Render
 
 🙋‍♂️ Author
 Developed by Navraj Awasthi
-🔗 GitHub
+🔗 GitHub<Link>https://github.com/Navraj12<Link/>
 
 
