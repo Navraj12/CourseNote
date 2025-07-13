@@ -30,9 +30,19 @@ CourseNote is a full-stack web application built with the MERN stack (MongoDB, E
 
 ## 🚀 Getting Started Locally
 
-### 1. Clone the repository
-```bash
+1. Clone the repository
 git clone https://github.com/Navraj12/Project1.git
 cd Project1
+
+2. Start the Backend
+cd Backend
+npm install
+npm start
+ 
+3. Start the Frontend
+cd Frontend
+npm install
+npm run dev
+
 
 
