@@ -1,0 +1,26 @@
+{
+    "name": "mern",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Navraj12/MERN.git"
+    },
+    "author": "Navraj Awasthi",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Navraj12/MERN/issues"
+    },
+    "homepage": "https://github.com/Navraj12/MERN#readme",
+    "description": "",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "express": "^4.21.2",
+        "mongoose": "^8.9.4",
+        "multer": "^1.4.5-lts.1",
+        "nodemon": "^3.1.10"
+    }
+}
