@@ -8,7 +8,9 @@ function Home() {
 
   const fetchBooks = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/book");
+      const response = await axios.get(
+        "https://project1-1-3wxp.onrender.com/book"
+      );
       if (response.status === 200) {
         // Verify the correct response structure first!
         setBooks(response.data.data); // or response.data

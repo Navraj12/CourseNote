@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom"; // Fixed import
 
 const Card = ({ book }) => {
@@ -43,6 +44,16 @@ const Card = ({ book }) => {
       {/* </div> */}
     </div>
   );
+};
+Card.propTypes = {
+  book: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    bookName: PropTypes.string.isRequired,
+    bookPrice: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+      .isRequired,
+    isbnNumber: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    imageUrl: PropTypes.string,
+  }).isRequired,
 };
 
 export default Card;

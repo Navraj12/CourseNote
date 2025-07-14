@@ -11,7 +11,9 @@ function SingleBook() {
   useEffect(() => {
     const fetchBook = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/book/${id}`);
+        const response = await axios.get(
+          `https://project1-1-3wxp.onrender.com/book/${id}`
+        );
         if (response.status === 200) {
           setBook(response.data.data); // Assuming response.data.data contains the book details
           console.log("Image URL:", response.data.data.imageUrl);

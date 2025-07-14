@@ -37,7 +37,7 @@ function EditBook() {
 
     try {
       const response = await axios.patch(
-        "http://localhost:3000/book" + id,
+        "https://project1-1-3wxp.onrender.com/book" + id,
         formData,
         {
           headers: {
@@ -58,7 +58,9 @@ function EditBook() {
   };
 
   const fetchBook = async () => {
-    const response = await axios.get("https://localhost:3000/book/" + id);
+    const response = await axios.get(
+      "https://project1-1-3wxp.onrender.com/book/" + id
+    );
     if (response.status === 200) {
       setData(response.data.data);
     }
