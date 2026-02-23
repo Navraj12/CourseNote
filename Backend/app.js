@@ -7,21 +7,17 @@ const cors = require('cors');
 // const { multer, storage } = require('./middleware/multerConfig.js');
 const upload = require('./middleware/multerConfig.js');
 
-// Middleware
 app.use(cors({ origin: '*' }));
 app.use(express.json());
 app.use(express.static("./storage/"));
 app.use("/uploads", express.static("uploads"))
 
-// Database Connection
 connectTodDatabase();
 
-// Routes
 app.get("/", (req, res) => {
     res.status(200).json({ message: "Success" });
 });
 
-// Create Book
 app.post("/book", upload.single('image'), async(req, res) => {
     try {
         const imageUrl = req.file ? "http://localhost:3000/" + req.file.filename : "link_of_image";
@@ -35,7 +31,6 @@ app.post("/book", upload.single('image'), async(req, res) => {
             publishedAt,
             imageUrl
         });
-
         res.status(201).json({ message: "Book created successfully" });
     } catch (error) {
         res.status(500).json({ message: "Error creating book", error: error.message });
@@ -117,3 +112,4 @@ app.patch("/book/:id", upload.single('image'), async(req, res) => {
 app.listen(3000, () => {
     console.log("Nodejs server has started at port 3000");
 });
+console.log("Nodejs server has started at port 3000");
