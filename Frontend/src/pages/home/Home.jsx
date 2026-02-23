@@ -12,8 +12,7 @@ function Home() {
         "https://project1-1-3wxp.onrender.com/book"
       );
       if (response.status === 200) {
-        // Verify the correct response structure first!
-        setBooks(response.data.data); // or response.data
+        setBooks(response.data.data);
       }
     } catch (error) {
       console.error("Error fetching books:", error);
@@ -31,8 +30,8 @@ function Home() {
         {books.length > 0 &&
           books.map((book) => (
             <Card
-              key={book._id} // Use a unique identifier from your book data
-              book={book} // Pass the entire book object as a prop
+              key={book._id}
+              book={book}
             />
           ))}
       </div>

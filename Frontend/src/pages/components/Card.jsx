@@ -1,8 +1,7 @@
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom"; // Fixed import
+import { Link } from "react-router-dom";
 
 const Card = ({ book }) => {
-  // const navigate = useNavigate();
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg my-10">
       <img

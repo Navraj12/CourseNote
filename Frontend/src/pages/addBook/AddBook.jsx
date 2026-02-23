@@ -10,7 +10,7 @@ function AddBook() {
     bookPrice: "",
     isbnNumber: "",
     publishedAt: "",
-    author: "",
+    authorName: "",
   });
   const [image, setImage] = useState(null);
 
@@ -31,8 +31,8 @@ function AddBook() {
     formData.append("bookPrice", data.bookPrice);
     formData.append("isbnNumber", data.isbnNumber);
     formData.append("publishedAt", data.publishedAt);
-    formData.append("authorName", data.author); // Match the backend field name
-    formData.append("image", image); // Append the file
+    formData.append("authorName", data.authorName);
+    formData.append("image", image);
 
     try {
       const response = await axios.post(
@@ -40,9 +40,9 @@ function AddBook() {
         formData,
         {
           headers: {
-            "Content-Type": "multipart/form-data", // Set the correct content type
+            "Content-Type": "multipart/form-data",
           },
-        }
+        },
       );
 
       if (response.status === 201) {
@@ -75,7 +75,7 @@ function AddBook() {
                   <input
                     type="text"
                     id="bookName"
-                    name="bookName" // Match the key in the `data` state object
+                    name="bookName"
                     placeholder="Name of book"
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"
                     onChange={handleChange}
@@ -89,7 +89,7 @@ function AddBook() {
                   <input
                     type="number"
                     id="bookPrice"
-                    name="bookPrice" // Match the key in the `data` state object
+                    name="bookPrice"
                     placeholder="Book Price"
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"
                     onChange={handleChange}
@@ -103,7 +103,7 @@ function AddBook() {
                   <input
                     type="number"
                     id="isbnNumber"
-                    name="isbnNumber" // Match the key in the `data` state object
+                    name="isbnNumber"
                     placeholder="ISBN Number"
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"
                     onChange={handleChange}
@@ -117,7 +117,7 @@ function AddBook() {
                   <input
                     type="text"
                     id="author"
-                    name="author" // Match the key in the `data` state object
+                    name="author"
                     placeholder="Author Name"
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"
                     onChange={handleChange}
@@ -131,7 +131,7 @@ function AddBook() {
                   <input
                     type="date"
                     id="publishedAt"
-                    name="publishedAt" // Match the key in the `data` state object
+                    name="publishedAt"
                     placeholder="Published At"
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"
                     onChange={handleChange}
@@ -145,7 +145,7 @@ function AddBook() {
                   <input
                     type="file"
                     id="image"
-                    name="image" // Match the backend field name
+                    name="image"
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"
                     onChange={(e) => setImage(e.target.files[0])}
                     alt="Book Image"

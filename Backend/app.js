@@ -20,9 +20,8 @@ app.get("/", (req, res) => {
 
 app.post("/book", upload.single('image'), async(req, res) => {
     try {
-        const imageUrl = req.file ? "http://localhost:3000/" + req.file.filename : "link_of_image";
+        const imageUrl = req.file ? "http://localhost:3000/" + req.file.filename : null;
         const { bookName, bookPrice, isbnNumber, authorName, publishedAt } = req.body;
-
         await Book.create({
             bookName,
             bookPrice,
@@ -79,11 +78,9 @@ app.patch("/book/:id", upload.single('image'), async(req, res) => {
         const id = req.params.id;
         const { bookName, bookPrice, isbnNumber, authorName, publishedAt } = req.body;
         const oldBook = await Book.findById(id);
-
         if (!oldBook) {
             return res.status(404).json({ message: "Book not found" });
         }
-
         let fileName = oldBook.imageUrl;
         if (req.file) {
             const oldImagePath = oldBook.imageUrl.replace("http://localhost:3000/", "");
@@ -108,7 +105,6 @@ app.patch("/book/:id", upload.single('image'), async(req, res) => {
     }
 });
 
-// Start Server
 app.listen(3000, () => {
     console.log("Nodejs server has started at port 3000");
 });

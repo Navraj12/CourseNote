@@ -11,7 +11,7 @@ function EditBook() {
     bookPrice: "",
     isbnNumber: "",
     publishedAt: "",
-    author: "", // Match the backend field name
+    authorName: "",
   });
   const [image, setImage] = useState(null);
 
@@ -32,8 +32,8 @@ function EditBook() {
     formData.append("bookPrice", data.bookPrice);
     formData.append("isbnNumber", data.isbnNumber);
     formData.append("publishedAt", data.publishedAt);
-    formData.append("authorName", data.author); // Match the backend field name
-    formData.append("image", image); // Append the file
+    formData.append("authorName", data.authorName);
+    formData.append("image", image);
 
     try {
       const response = await axios.patch(
@@ -41,13 +41,13 @@ function EditBook() {
         formData,
         {
           headers: {
-            "Content-Type": "multipart/form-data", // Set the correct content type
+            "Content-Type": "multipart/form-data",
           },
-        }
+        },
       );
 
       if (response.status === 200) {
-        navigate("/book/" + id);
+        navigate(`/book/${id}`);
       } else {
         alert("Something went wrong");
       }
@@ -59,7 +59,7 @@ function EditBook() {
 
   const fetchBook = async () => {
     const response = await axios.get(
-      "https://project1-1-3wxp.onrender.com/book/" + id
+      "https://project1-1-3wxp.onrender.com/book/" + id,
     );
     if (response.status === 200) {
       setData(response.data.data);
@@ -89,7 +89,7 @@ function EditBook() {
                     type="text"
                     id="bookName"
                     value={data.bookName}
-                    name="bookName" // Match the key in the `data` state object
+                    name="bookName"
                     placeholder="Name of book"
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"
                     onChange={handleChange}
@@ -103,7 +103,7 @@ function EditBook() {
                     type="number"
                     id="bookPrice"
                     value={data.bookPrice}
-                    name="bookPrice" // Match the key in the `data` state object
+                    name="bookPrice"
                     placeholder="Book Price"
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"
                     onChange={handleChange}
@@ -117,7 +117,7 @@ function EditBook() {
                     type="number"
                     id="isbnNumber"
                     value={data.isbnNumber}
-                    name="isbnNumber" // Match the key in the `data` state object
+                    name="isbnNumber"
                     placeholder="ISBN Number"
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"
                     onChange={handleChange}
@@ -131,8 +131,8 @@ function EditBook() {
                   <input
                     type="text"
                     id="author"
-                    value={data.author}
-                    name="author" // Match the key in the `data` state object
+                    value={data.authorName}
+                    name="authorName"
                     placeholder="Author Name"
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"
                     onChange={handleChange}
