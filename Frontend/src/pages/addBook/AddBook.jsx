@@ -10,7 +10,7 @@ function AddBook() {
     bookPrice: "",
     isbnNumber: "",
     publishedAt: "",
-    author: "", // Match the backend field name
+    author: "",
   });
   const [image, setImage] = useState(null);
 
