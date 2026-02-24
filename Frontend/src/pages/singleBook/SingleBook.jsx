@@ -5,8 +5,8 @@ import Navbar from "../components/Navbar";
 
 function SingleBook() {
   const { id } = useParams();
-  const [book, setBook] = useState(null); // Start with null to handle loading state
-  const [error, setError] = useState(null); // State to handle errors
+  const [book, setBook] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchBook = async () => {
@@ -15,7 +15,7 @@ function SingleBook() {
           `https://project1-1-3wxp.onrender.com/book/${id}`
         );
         if (response.status === 200) {
-          setBook(response.data.data); // Assuming response.data.data contains the book details
+          setBook(response.data.data);
           console.log("Image URL:", response.data.data.imageUrl);
         } else {
           setError("Failed to fetch book details.");
@@ -27,11 +27,11 @@ function SingleBook() {
     };
 
     if (id) {
-      fetchBook(); // Call the function only if `id` is valid
+      fetchBook();
     } else {
       setError("Invalid book ID.");
     }
-  }, [id]); // Only 'id' in dependency array
+  }, [id]);
 
   if (error) {
     return (
@@ -45,7 +45,6 @@ function SingleBook() {
   }
 
   if (!book) {
-    // Loading state until book is fetched
     return (
       <>
         <Navbar />
@@ -63,7 +62,7 @@ function SingleBook() {
         <img
           className="w-full"
           src={book.imageUrl}
-          alt={book.bookName || "Book Image"} // Fallback alt text
+          alt={book.bookName || "Book Image"}
         />
 
         <div className="px-6 py-4">

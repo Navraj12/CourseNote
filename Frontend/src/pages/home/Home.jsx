@@ -30,8 +30,8 @@ function Home() {
         {books.length > 0 &&
           books.map((book) => (
             <Card
-              key={book._id}
-              book={book}
+              key={book._id} //helps to react identify which items have changed, are added, or are removed
+              book={book} //passes book data to card component as props
             />
           ))}
       </div>
